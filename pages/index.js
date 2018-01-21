@@ -44,6 +44,8 @@ class Home extends React.Component {
       index: 0,
       data: nextProps.data,
       currentVideo: nextProps.data && nextProps.data.children  && nextProps.data.children.length && nextProps.data.children[0].data || null
+    }, () => {
+      document.querySelector('.list').scrollTo(0,0)
     })
 
   }
@@ -64,6 +66,7 @@ class Home extends React.Component {
   setVideo(i, increment) {
     this.setState((prevState) => {
       const index = i || (increment ? prevState.index+=1 : prevState.index-=1)
+      document.querySelector(`[data-index='${index}']`).scrollIntoView({behavior: "smooth"})
       return {
         index,
         currentVideo: prevState.data.children[index].data

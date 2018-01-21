@@ -3,7 +3,7 @@ const List = ({data, index, baseUrl, subreddit, setVideo, loadMore}) => (
     {data &&
     data.children &&
     data.children.map((child, i) => (
-      <li key={child.data.id} className={index === i ? 'selected' : ''}>
+      <li data-index={i} key={child.data.id} className={index === i ? 'selected' : ''}>
 
         {child.data.preview &&
         child.data.preview.images &&

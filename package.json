@@ -1,0 +1,21 @@
+{
+  "name": "videoco",
+  "version": "1.0.0",
+  "description": "Subreddit video player",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "dobladov",
+  "license": "ISC",
+  "dependencies": {
+    "isomorphic-unfetch": "^2.0.0",
+    "next": "^4.2.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-html-parser": "^2.0.2"
+  }
+}

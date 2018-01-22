@@ -2,7 +2,8 @@ import react from "react"
 import fetch from 'isomorphic-unfetch'
 
 import Player from '../components/Player'
-import Controls from '../components/Controls'
+import Title from '../components/Title'
+import Navigation  from '../components/Navigation'
 import List from '../components/List'
 import Head from '../components/Head'
 
@@ -91,37 +92,58 @@ class Home extends React.Component {
       <div className="container">
         <Head />
 
-        <Player currentVideo={this.state.currentVideo} />
+        <main>
+          <Player currentVideo={this.state.currentVideo} />
 
-        <Controls
-          index={this.state.index}
-          subreddit={this.props.subreddit}
-          baseUrl={this.props.baseUrl}
-          title={this.state.currentVideo && this.state.currentVideo.title}
-          link={this.state.currentVideo && this.state.currentVideo.permalink}
-          total={this.state.data.children.length -1}
-          nextVideo={this.nextVideo.bind(this)}
-        />
+          <Title
+            title={this.state.currentVideo && this.state.currentVideo.title}
+            link={this.state.currentVideo && this.state.currentVideo.permalink}
+            baseUrl={this.props.baseUrl}
+          />
+        </main>
 
-        <List
-          data={this.state.data}
-          index={this.state.index}
-          baseUrl={this.props.baseUrl}
-          subreddit={this.props.subreddit}
-          setVideo={this.setVideo.bind(this)}
-          loadMore={this.loadMore.bind(this)}
-        />
+        <aside>
+          <Navigation
+            index={this.state.index}
+            subreddit={this.props.subreddit}
+            baseUrl={this.props.baseUrl}
+            total={this.state.data.children.length -1}
+            nextVideo={this.nextVideo.bind(this)}
+          />
+          <List
+            data={this.state.data}
+            index={this.state.index}
+            baseUrl={this.props.baseUrl}
+            subreddit={this.props.subreddit}
+            setVideo={this.setVideo.bind(this)}
+            loadMore={this.loadMore.bind(this)}
+          />
+        </aside>
+
 
         <style jsx>{`
           .container {
-            padding: 20px;
+            padding: 25px;
             display: flex;
-            flex-direction: column;
             justify-content:center;
-            max-width: 1000px;
             margin: 0 auto;
             height: 100vh;
           }
+
+          main {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+          }
+
+          aside {
+            flex: 1;
+            margin-left: 15px;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+          }
+
 
           @media (max-width: 1024px) {
             .container {
@@ -139,7 +161,8 @@ class Home extends React.Component {
 
           iframe {
             width: 100%;
-            height: 450px;
+            height: 100%;
+            position: absolute;
             margin-bottom: -4px;
             border-radius: 5px 5px 0 0;
           }

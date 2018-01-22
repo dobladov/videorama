@@ -44,7 +44,7 @@ const List = ({data, index, baseUrl, subreddit, setVideo, loadMore}) => (
           </div>
         </div>
 
-        <div className="links">
+        {/* <div className="links">
           <a
             target="_blank"
             href={child.data.url}
@@ -55,7 +55,7 @@ const List = ({data, index, baseUrl, subreddit, setVideo, loadMore}) => (
           >
             <img src="/static/link.svg" />
           </a>
-        </div>
+        </div> */}
 
       </li>
     ))}
@@ -77,9 +77,8 @@ const List = ({data, index, baseUrl, subreddit, setVideo, loadMore}) => (
         list-style-type: none;
         padding: 0;
         background-color: white;
-        max-height: 400px;
         overflow: auto;
-        box-shadow: 0 13px 10px #777, 0 -10px 3px #777;
+        flex: 1;
       }
 
       .list li {

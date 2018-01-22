@@ -63,9 +63,19 @@ class Home extends React.Component {
     });
   }
 
-  setVideo(i, increment) {
+  setVideo(index) {
     this.setState((prevState) => {
-      const index = i || (increment ? prevState.index+=1 : prevState.index-=1)
+      document.querySelector(`[data-index='${index}']`).scrollIntoView({behavior: "smooth"})
+      return {
+        index,
+        currentVideo: prevState.data.children[index].data
+      }
+    })
+  }
+
+  nextVideo(increment) {
+    this.setState((prevState) => {
+      const index = increment ? prevState.index+=1 : prevState.index-=1
       document.querySelector(`[data-index='${index}']`).scrollIntoView({behavior: "smooth"})
       return {
         index,
@@ -88,7 +98,7 @@ class Home extends React.Component {
           title={this.state.currentVideo && this.state.currentVideo.title}
           link={this.state.currentVideo && this.state.currentVideo.permalink}
           total={this.state.data.children.length -1}
-          setVideo={this.setVideo.bind(this)}
+          nextVideo={this.nextVideo.bind(this)}
         />
 
         <List

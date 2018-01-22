@@ -1,7 +1,7 @@
 import Router from 'next/router'
 import subReddits from '../components/subReddits'
 
-const Controls = ({index, subreddit, baseUrl, title, link, total, setVideo}) => (
+const Controls = ({index, subreddit, baseUrl, title, link, total, nextVideo}) => (
   <div className="controls">
 
     {title && link &&
@@ -19,7 +19,7 @@ const Controls = ({index, subreddit, baseUrl, title, link, total, setVideo}) => 
         {index > 0 &&
           <button
             onClick={e => {
-              setVideo(null)
+              nextVideo(false)
             }}
           >&lt;</button>
           }
@@ -27,7 +27,7 @@ const Controls = ({index, subreddit, baseUrl, title, link, total, setVideo}) => 
         {index < total &&
         <button
           onClick={e => {
-            setVideo(null, true)
+            nextVideo(true)
           }}
         >&gt;</button>
         }

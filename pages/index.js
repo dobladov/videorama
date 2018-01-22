@@ -4,6 +4,7 @@ import fetch from 'isomorphic-unfetch'
 import Player from '../components/Player'
 import Controls from '../components/Controls'
 import List from '../components/List'
+import Head from '../components/Head'
 
 class Home extends React.Component {
 
@@ -88,6 +89,7 @@ class Home extends React.Component {
 
     return (
       <div className="container">
+        <Head />
 
         <Player currentVideo={this.state.currentVideo} />
 

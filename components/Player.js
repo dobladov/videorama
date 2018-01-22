@@ -1,17 +1,11 @@
 import ReactHtmlParser from 'react-html-parser'
+import Frame from './Frame';
 
 const Player = ({currentVideo}) => (
   <div className="player">
   {currentVideo &&
   currentVideo.media &&
-    <div
-      className="iframe"
-      dangerouslySetInnerHTML={
-      {__html: ReactHtmlParser(
-        currentVideo.media.oembed &&
-        currentVideo.secure_media_embed.content.replace('oembed', 'oembed&autoplay=1'))
-      }}
-    />
+    <Frame video={currentVideo} />
   }
 
   {currentVideo &&

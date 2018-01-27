@@ -46,10 +46,12 @@ const Player = ({currentVideo}) => (
   <style jsx>{`
     .player {
       width: 100%;
-      height: 450px;
       border-radius: 5px 5px 0 0;
       background-color: #d2d7db;
       position: relative;
+      flex: 1;
+      max-height: 720px;
+      min-height: 400px;
     }
 
     .player .loading {
@@ -90,9 +92,12 @@ const Player = ({currentVideo}) => (
 
     .player .rawVideo {
       width: 100%;
-      height: 450px;
+      height: 100%;
+      position: absolute;
+      max-height: 720px;
       border-radius: 5px 5px 0 0;
     }
+
   `}</style>
 
 </div>

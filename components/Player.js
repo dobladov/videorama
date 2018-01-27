@@ -31,7 +31,7 @@ const Player = ({currentVideo}) => (
           className="rawVideo"
           src={currentVideo.url}
           preload="auto"
-          autoplay
+          autoPlay
           controls
         ></video>
     ))

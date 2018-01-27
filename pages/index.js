@@ -19,10 +19,10 @@ class Home extends React.Component {
     }
   }
 
-  static async getInitialProps(query) {
+  static async getInitialProps({query}) {
 
     const baseUrl = 'https://www.reddit.com'
-    const subreddit = query.query.r || 'videos'
+    const subreddit = query.r || 'videos'
 
     const res = await fetch(`${baseUrl}/r/${subreddit}/.json`)
     const statusCode = res.statusCode > 200 ? res.statusCode : false

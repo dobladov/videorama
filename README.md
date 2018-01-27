@@ -1,7 +1,7 @@
-# videorama
-Subreddit video player r
+# Videorama
+Subreddit video player
 
-Currently unning without SSR in [Videorama](https://videorama.surge.sh/)
+Currently running without SSR in [Videorama](https://videorama.surge.sh/)
 
 ```
 git clone https://github.com/dobladov/videorama.git

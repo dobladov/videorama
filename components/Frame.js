@@ -1,5 +1,3 @@
-import ReactHtmlParser from 'react-html-parser'
-
 class Frame extends React.Component {
 
   constructor(props) {
@@ -22,8 +20,8 @@ class Frame extends React.Component {
 
         dangerouslySetInnerHTML={
         {__html:
-          this.props.video.media.oembed &&
-          ReactHtmlParser(this.props.video.media.oembed.html.replace('oembed', 'oembed&autoplay=1'))
+          this.props.iframe &&
+          this.props.iframe
         }}
       />
     )

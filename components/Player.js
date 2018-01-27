@@ -1,11 +1,16 @@
 import ReactHtmlParser from 'react-html-parser'
+import queryString from 'query-string'
 import Frame from './Frame';
 
 const Player = ({currentVideo}) => (
   <div className="player">
   {currentVideo &&
   currentVideo.media &&
-    <Frame video={currentVideo} />
+  currentVideo.media.oembed &&
+    <Frame
+      video={currentVideo}
+      iframe={ReactHtmlParser(currentVideo.media.oembed.html.replace('oembed', 'oembed&autoplay=1'))}
+    />
   }
 
   {currentVideo &&
@@ -27,13 +32,32 @@ const Player = ({currentVideo}) => (
         src={currentVideo.url}
       />
     ) : (
-        <video
-          className="rawVideo"
-          src={currentVideo.url}
-          preload="auto"
-          autoPlay
-          controls
-        ></video>
+        currentVideo.url.match(/\.(liveleak.com)/g) ? (
+          <Frame
+            video={currentVideo}
+            iframe={
+              `<iframe
+                width="640"
+                src="https://www.liveleak.com/ll_embed?i=${queryString.parse(currentVideo.url.split('?')[1]).i}"
+                frameborder="0"
+                allowfullscreen>
+              </iframe>`
+            }
+          />
+        ) :
+        (
+          currentVideo.url.match(/\.(jpg|png|gif)$/g) ? (
+            <img src={currentVideo.url} alt={currentVideo.title}/>
+          ) : (
+          <video
+            className="rawVideo"
+            src={currentVideo.url}
+            preload="auto"
+            autoPlay
+            controls
+          ></video>
+          )
+        )
     ))
   }
 

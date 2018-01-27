@@ -134,6 +134,7 @@ const List = ({data, index, baseUrl, subreddit, setVideo, loadMore}) => (
       .list .preview {
         width: 150px;
         cursor:pointer;
+        min-width: 150px;
       }
 
 

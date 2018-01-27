@@ -44,19 +44,6 @@ const List = ({data, index, baseUrl, subreddit, setVideo, loadMore}) => (
           </div>
         </div>
 
-        {/* <div className="links">
-          <a
-            target="_blank"
-            href={child.data.url}
-            title={(child.data.media &&
-              child.data.media.oembed &&
-              child.data.media.oembed.provider_name)
-              ? `Link to ${child.data.media.oembed.provider_name}` : "No media"}
-          >
-            <img src="/static/link.svg" />
-          </a>
-        </div> */}
-
       </li>
     ))}
 
@@ -149,36 +136,24 @@ const List = ({data, index, baseUrl, subreddit, setVideo, loadMore}) => (
         cursor:pointer;
       }
 
-      .list .links img {
-        width: 50px;
-        background-color: #414141;
-        padding: 10px;
-        border-radius: 50%;
-      }
 
-      .list .links a:hover img,
-      .list .links a:focus img {
-        background-color: #fe8698;
-      }
 
       .list li.loadMore {
         justify-content: center;
         font-size: 1.2rem;
+        padding: 0;
       }
 
-      @media (max-width: 500px) {
-        .list li  {
-          flex-wrap: wrap;
-        }
+      .list li.loadMore a {
+        display: block;
+        padding: 20px;
+        width: 100%;
+        text-align: center;
+      }
 
-        .list li img {
-          width: 100%;
-          margin-bottom: 20px;
-        }
-
-        .list li .links {
-          margin-right: 10px;
-        }
+      .list li.loadMore:hover,
+      .list li.loadMore:focus {
+        background-color: #f3f3f3;
       }
 
     `}</style>

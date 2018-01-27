@@ -67,7 +67,12 @@ class Home extends React.Component {
 
   setVideo(index) {
     this.setState((prevState) => {
-      document.querySelector(`[data-index='${index}']`).scrollIntoView({behavior: "smooth"})
+      if (window.innerWidth >= 1024) {
+        document.querySelector(`[data-index='${index}']`).scrollIntoView({behavior: "smooth"})
+      } else {
+        document.querySelector('.player').scrollIntoView({behavior: "smooth"})
+      }
+
       return {
         index,
         currentVideo: prevState.data.children[index].data
@@ -78,7 +83,13 @@ class Home extends React.Component {
   nextVideo(increment) {
     this.setState((prevState) => {
       const index = increment ? prevState.index+=1 : prevState.index-=1
-      document.querySelector(`[data-index='${index}']`).scrollIntoView({behavior: "smooth"})
+
+      if (window.innerWidth >= 1024) {
+        document.querySelector(`[data-index='${index}']`).scrollIntoView({behavior: "smooth"})
+      } else {
+        document.querySelector('.player').scrollIntoView({behavior: "smooth"})
+      }
+
       return {
         index,
         currentVideo: prevState.data.children[index].data
@@ -98,6 +109,7 @@ class Home extends React.Component {
           <Title
             title={this.state.currentVideo && this.state.currentVideo.title}
             link={this.state.currentVideo && this.state.currentVideo.permalink}
+            url={this.state.currentVideo && this.state.currentVideo.url}
             baseUrl={this.props.baseUrl}
           />
         </main>

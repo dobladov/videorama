@@ -23,7 +23,7 @@ class Frame extends React.Component {
         dangerouslySetInnerHTML={
         {__html:
           this.props.video.media.oembed &&
-          ReactHtmlParser(this.props.video.secure_media_embed.content.replace('oembed', 'oembed&autoplay=1'))
+          ReactHtmlParser(this.props.video.media.oembed.html.replace('oembed', 'oembed&autoplay=1'))
         }}
       />
     )

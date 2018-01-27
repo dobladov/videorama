@@ -98,6 +98,7 @@ class Home extends React.Component {
           <Title
             title={this.state.currentVideo && this.state.currentVideo.title}
             link={this.state.currentVideo && this.state.currentVideo.permalink}
+            url={this.state.currentVideo && this.state.currentVideo.url}
             baseUrl={this.props.baseUrl}
           />
         </main>

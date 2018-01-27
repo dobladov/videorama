@@ -51,7 +51,7 @@ const Player = ({currentVideo}) => (
           ) : (
           <video
             className="rawVideo"
-            src={currentVideo.url}
+            src={currentVideo.url.replace('.gifv','.mp4')}
             preload="auto"
             autoPlay
             controls

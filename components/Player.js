@@ -112,6 +112,7 @@ const Player = ({currentVideo}) => (
       z-index: 2;
       overflow: auto;
       max-height: 100%;
+      overflow: auto;
     }
 
     .player .rawVideo {

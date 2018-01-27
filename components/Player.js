@@ -51,6 +51,7 @@ const Player = ({currentVideo}) => (
       position: relative;
       flex: 1;
       max-height: 720px;
+      min-height: 400px;
     }
 
     .player .loading {
@@ -96,6 +97,7 @@ const Player = ({currentVideo}) => (
       max-height: 720px;
       border-radius: 5px 5px 0 0;
     }
+
   `}</style>
 
 </div>

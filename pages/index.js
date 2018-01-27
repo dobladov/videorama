@@ -142,12 +142,23 @@ class Home extends React.Component {
             overflow: auto;
             display: flex;
             flex-direction: column;
+            box-shadow: 0px 1px 4px #777;
+
           }
 
 
           @media (max-width: 1024px) {
             .container {
               padding: 10px;
+              display: block;
+            }
+
+            main {
+              box-shadow: 0px 1px 4px #777;
+            }
+
+            aside {
+              margin: 0;
             }
           }
 

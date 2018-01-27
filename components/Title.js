@@ -17,6 +17,12 @@ const Title = ({title, link, baseUrl}) => (
         font-size: 1.3rem;
       }
 
+      @media (max-width: 1024px) {
+        .Title {
+          box-shadow: none;
+        }
+      }
+
     `}</style>
 
   </div>

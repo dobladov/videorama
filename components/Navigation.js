@@ -50,7 +50,6 @@ const Navigation = ({index, subreddit, baseUrl, total, nextVideo}) => (
           box-shadow: 0px 1px 4px #777;
           z-index: 2;
           background-color: white;
-          border: 2px solid #e7e7e7;
           border-bottom: none;
         }
 
@@ -87,6 +86,14 @@ const Navigation = ({index, subreddit, baseUrl, total, nextVideo}) => (
 
         .Navigation .arrow:last-child {
           border-left: 2px solid #e7e7e7;
+        }
+
+        @media (max-width: 1024px) {
+          .Navigation {
+            border-top: 2px solid #e7e7e7;
+            border-bottom: 2px solid #e7e7e7;
+            box-shadow: none;
+          }
         }
 
       `}</style>

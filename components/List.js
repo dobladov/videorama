@@ -164,6 +164,19 @@ const List = ({data, index, baseUrl, subreddit, setVideo, loadMore}) => (
       .list li.loadMore {
         justify-content: center;
         font-size: 1.2rem;
+        padding: 0;
+      }
+
+      .list li.loadMore a {
+        display: block;
+        padding: 20px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .list li.loadMore:hover,
+      .list li.loadMore:focus {
+        background-color: #f3f3f3;
       }
 
       @media (max-width: 500px) {

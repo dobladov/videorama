@@ -22,7 +22,7 @@ const Navigation = ({index, subreddit, baseUrl, total, nextVideo}) => (
         value={subreddit}
       >
         {subReddits.map(sub => (
-          <option key={sub} value={sub}>{`${sub.charAt(0).toUpperCase()}${sub.slice(1)}`}</option>
+          <option key={sub.replace(/ /g, '').toLowerCase()} value={sub.replace(/ /g, '').toLowerCase()}>{sub}</option>
         ))}
 
         {!subReddits.includes(subreddit) &&

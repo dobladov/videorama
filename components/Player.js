@@ -76,6 +76,7 @@ const Player = ({currentVideo}) => (
       flex: 1;
       max-height: 720px;
       min-height: 400px;
+      overflow: auto;
     }
 
     .player .loading {
@@ -112,7 +113,6 @@ const Player = ({currentVideo}) => (
       z-index: 2;
       overflow: auto;
       max-height: 100%;
-      overflow: auto;
     }
 
     .player .rawVideo {

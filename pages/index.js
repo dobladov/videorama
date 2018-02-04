@@ -22,7 +22,7 @@ class Home extends React.Component {
   static async getInitialProps({query}) {
 
     const baseUrl = 'https://www.reddit.com'
-    const subreddit = query.r || 'videos'
+    const subreddit = (query && query.r) || 'videos'
 
     const res = await fetch(`${baseUrl}/r/${subreddit}/.json`)
     const statusCode = res.statusCode > 200 ? res.statusCode : false
@@ -32,10 +32,16 @@ class Home extends React.Component {
       baseUrl,
       subreddit,
       data: json.data,
+      isStatic: query.isStatic
     }
   }
 
   componentDidMount() {
+
+    if (this.props.isStatic) {
+      Home.getInitialProps({query: {}})
+    }
+
     this.setState({
       currentVideo: this.props.data && this.props.data.children  && this.props.data.children.length && this.props.data.children[0].data || null
     })

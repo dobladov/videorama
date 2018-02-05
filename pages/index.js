@@ -1,5 +1,6 @@
 import react from "react"
 import fetch from 'isomorphic-unfetch'
+import Router from 'next/router'
 
 import Player from '../components/Player'
 import Title from '../components/Title'
@@ -39,7 +40,7 @@ class Home extends React.Component {
   componentDidMount() {
 
     if (this.props.isStatic) {
-      Home.getInitialProps({query: {}})
+      Router.replace(this.props.url && this.props.url.asPath)
     }
 
     this.setState({

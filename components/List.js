@@ -38,7 +38,7 @@ const List = ({data, index, baseUrl, subreddit, setVideo, loadMore}) => (
           </div>
 
           <div className="metadata">
-            <a target="_blank" href={`${baseUrl}/${child.data.permalink}`} title="Reddit Link">
+            <a target="_blank" href={`${baseUrl}${child.data.permalink}`} title="Reddit Link">
               {child.data.num_comments} Comments - {child.data.ups} Upvotes
             </a>
           </div>

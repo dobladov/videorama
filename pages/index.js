@@ -149,7 +149,7 @@ class Home extends React.Component {
             justify-content:center;
             margin: 0 auto;
             height: 100vh;
-            transition: opacity .2s;
+            transition: opacity .1s;
           }
 
           main {

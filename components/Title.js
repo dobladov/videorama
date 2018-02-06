@@ -2,7 +2,7 @@ const Title = ({title, link, baseUrl, url}) => (
 
   title && link &&
   <div className="Title">
-      <a target="_blank" title="Reddit Link" href={`${baseUrl}/${link}`}>
+      <a target="_blank" title="Reddit Link" href={`${baseUrl}${link}`}>
         {title}
       </a>
 

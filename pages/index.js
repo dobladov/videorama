@@ -16,7 +16,8 @@ class Home extends React.Component {
     this.state = {
       data: this.props.data,
       currentVideo: null,
-      index: 0
+      index: 0,
+      ready: false
     }
   }
 
@@ -33,7 +34,7 @@ class Home extends React.Component {
       baseUrl,
       subreddit,
       data: json.data,
-      isStatic: query.isStatic
+      isStatic: query.isStaticisStatic
     }
   }
 
@@ -44,7 +45,8 @@ class Home extends React.Component {
     }
 
     this.setState({
-      currentVideo: this.props.data && this.props.data.children  && this.props.data.children.length && this.props.data.children[0].data || null
+      currentVideo: this.props.data && this.props.data.children  && this.props.data.children.length && this.props.data.children[0].data || null,
+      ready: true
     })
   }
 
@@ -107,7 +109,7 @@ class Home extends React.Component {
   render() {
 
     return (
-      <div className="container">
+      <div className={`container${this.state.ready ? '': ' hidden'}`}>
         <Head />
 
         <main>
@@ -147,6 +149,7 @@ class Home extends React.Component {
             justify-content:center;
             margin: 0 auto;
             height: 100vh;
+            transition: opacity .2s;
           }
 
           main {
@@ -163,6 +166,10 @@ class Home extends React.Component {
             flex-direction: column;
             box-shadow: 0px 1px 4px #777;
 
+          }
+
+          .hidden {
+            opacity: 0;
           }
 
 

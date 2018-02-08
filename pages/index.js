@@ -34,7 +34,7 @@ class Home extends React.Component {
       baseUrl,
       subreddit,
       data: json.data,
-      isStatic: query.isStaticisStatic
+      isStatic: query.isStatic
     }
   }
 
